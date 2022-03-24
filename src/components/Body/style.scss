@@ -1,0 +1,16 @@
+.body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+}
+
+.span-2 {
+  grid-column: span 2;
+}
+
+button {
+  border: none;
+  background: rgb(160, 249, 255);
+  padding: 25px 10px;
+  font-size: 25px;
+}

@@ -1,0 +1,17 @@
+.header {
+  background: #042600;
+  padding: calc(20 / 300 * 100%);
+
+  .prevOperand {
+    color: #fff;
+    font-size: 20px;
+    text-align: right;
+  }
+
+  .currentOperand {
+    color: #fff;
+    font-size: 30px;
+    text-align: right;
+    margin-top: 10px;
+  }
+}
