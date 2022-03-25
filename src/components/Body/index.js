@@ -2,10 +2,8 @@ import './style.scss'
 import { useReducer } from 'react'
 import OperationButton from '../OperationButton'
 import DegitButton from '../DegitButton'
-import { reducer } from '../../store'
 
-function Body() {
-  const [{ currentOperation, prevOperation }, dispatch] = useReducer(reducer, {})
+function Body({ dispatch }) {
 
   return (
     <div className="body grid">
@@ -24,8 +22,8 @@ function Body() {
       <DegitButton degit="8" dispatch={dispatch} />
       <DegitButton degit="9" dispatch={dispatch} />
       <OperationButton operator="-" dispatch={dispatch} />
-      <DegitButton degit="8" dispatch={dispatch} />
-      <DegitButton degit="9" dispatch={dispatch} />
+      <DegitButton degit="." dispatch={dispatch} />
+      <DegitButton degit="0" dispatch={dispatch} />
       <button className='span-2'>=</button>
     </div>
   )

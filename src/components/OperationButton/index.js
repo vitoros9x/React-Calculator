@@ -1,6 +1,8 @@
+import { ACTIONS } from "../../store"
+
 const OperationButton = ({ operator, dispatch }) => {
   return (
-    <button>{operator}</button>
+    <button onClick={() => dispatch({ type: ACTIONS.CHOOSE_OPERATION, payload: operator })}>{operator}</button>
   )
 }
 

@@ -1,10 +1,12 @@
 import styles from './Header.module.scss';
 
-const Header = () => {
+const Header = ({ ...state }) => {
+  const { currentOperand, prevOperand } = state
+
   return (
     <header className={styles.header}>
-      <div className={styles.prevOperand}>12312</div>
-      <div className={styles.currentOperand}>w2332</div>
+      <div className={styles.prevOperand}>{`${prevOperand || ''}`}</div>
+      <div className={styles.currentOperand}>{`${currentOperand || ''}`}</div>
     </header>
   )
 }

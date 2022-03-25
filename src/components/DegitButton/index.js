@@ -1,6 +1,8 @@
+import { ACTIONS } from "../../store"
+
 function DegitButton({ degit, dispatch }) {
   return (
-    <button>{degit}</button>
+    <button onClick={() => dispatch({ payload: { degit }, type: ACTIONS.ADD_DIGITS })}>{degit}</button>
   )
 }
 
