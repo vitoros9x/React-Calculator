@@ -1,4 +1,5 @@
 import ACTIONS from './actions'
+import evaluate from '../assets/eluavate'
 
 function reducer(state, { type, payload }) {
 
@@ -11,20 +12,30 @@ function reducer(state, { type, payload }) {
       }
 
     case ACTIONS.CHOOSE_OPERATION:
-      // if (!state.currentOperand) {
-      //   return {
-      //     ...state,
-      //     operation: payload,
-      //     prevOperand: `${state.prevOperand || ''}${payload}`,
-      //     currentOperand: ""
-      //   }
-      // }
+      if (!state.currentOperand) {
+        return {
+          ...state,
+          operation: payload,
+          prevOperand: state.prevOperand,
+          currentOperand: ""
+        }
+      }
 
       return {
         ...state,
         operation: payload,
-        prevOperand: `${state.currentOperand || ''}${payload}`,
+        prevOperand: state.currentOperand,
         currentOperand: ""
+      }
+
+    case ACTIONS.EVALUATE:
+      const results = evaluate()
+
+      return {
+        ...state,
+        operation: '',
+        prevOperand: '',
+        currentOperand: results
       }
 
     default:

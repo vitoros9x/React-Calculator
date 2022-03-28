@@ -1,9 +1,14 @@
 import './style.scss'
-import { useReducer } from 'react'
 import OperationButton from '../OperationButton'
 import DegitButton from '../DegitButton'
+import eluavate from '../../assets/eluavate'
+import { ACTIONS } from '../../store'
+import StateProvider from '../../Provider'
+import useContext from 'react'
 
-function Body({ dispatch }) {
+
+function Body() {
+  const [state, dispatch] = useContext(StateProvider)
 
   return (
     <div className="body grid">
@@ -24,7 +29,7 @@ function Body({ dispatch }) {
       <OperationButton operator="-" dispatch={dispatch} />
       <DegitButton degit="." dispatch={dispatch} />
       <DegitButton degit="0" dispatch={dispatch} />
-      <button className='span-2'>=</button>
+      <button className='span-2' onClick={() => dispatch({ type: ACTIONS.EVALUATE })}>=</button>
     </div>
   )
 }
