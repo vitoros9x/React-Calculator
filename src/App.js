@@ -2,17 +2,17 @@ import './assets/App.scss';
 import { useReducer } from 'react'
 import Header from './components/Header';
 import Body from './components/Body';
-import StateProvider from './components/StateProvider';
+import { StoreProvider } from './store'
 
 function App() {
 
   return (
-    <StateProvider>
+    <StoreProvider>
       <div className="App">
         <Header />
         <Body />
       </div>
-    </StateProvider>
+    </StoreProvider>
   );
 }
 

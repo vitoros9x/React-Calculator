@@ -29,13 +29,30 @@ function reducer(state, { type, payload }) {
       }
 
     case ACTIONS.EVALUATE:
-      const results = evaluate()
+      if (!state.prevOperand) return state
+
+      const results = evaluate(state)
 
       return {
         ...state,
         operation: '',
         prevOperand: '',
         currentOperand: results
+      }
+
+    case ACTIONS.CLEAR:
+      return {
+        operation: '',
+        prevOperand: '',
+        currentOperand: ''
+      }
+
+    case ACTIONS.DELETE_DIGITS:
+      const current = state.currentOperand.toString()
+
+      return {
+        ...state,
+        currentOperand: current.slice(0, current.length - 1)
       }
 
     default:

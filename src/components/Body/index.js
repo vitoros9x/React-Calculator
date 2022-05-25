@@ -1,19 +1,18 @@
 import './style.scss'
 import OperationButton from '../OperationButton'
 import DegitButton from '../DegitButton'
-import eluavate from '../../assets/eluavate'
 import { ACTIONS } from '../../store'
-import StateProvider from '../../Provider'
-import useContext from 'react'
+import { useContext } from 'react'
+import { StoreContext } from '../../store'
 
 
 function Body() {
-  const [state, dispatch] = useContext(StateProvider)
+  const [state, dispatch] = useContext(StoreContext)
 
   return (
     <div className="body grid">
-      <button className="span-2">AC</button>
-      <button>DEL</button>
+      <button className="span-2" onClick={() => dispatch({ type: ACTIONS.CLEAR })}>AC</button>
+      <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGITS })}>DEL</button>
       <OperationButton operator="÷" dispatch={dispatch} />
       <DegitButton degit="1" dispatch={dispatch} />
       <DegitButton degit="2" dispatch={dispatch} />

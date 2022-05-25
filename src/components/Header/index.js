@@ -1,7 +1,12 @@
 import styles from './Header.module.scss';
+import { StoreContext } from '../../store'
+import { useContext } from 'react';
 
-const Header = ({ state }) => {
+const Header = () => {
+  const [state, dispatch] = useContext(StoreContext)
   const { currentOperand, prevOperand, operation } = state
+
+  console.log(state);
 
   return (
     <header className={styles.header}>
