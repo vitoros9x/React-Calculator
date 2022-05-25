@@ -3,6 +3,8 @@ function eluavate(state) {
   const nextNum = +currentOperand
   const prevNum = +prevOperand
 
+  console.log('Evaluate: ', state);
+
   switch (operation) {
     case "+":
       return prevNum + nextNum
